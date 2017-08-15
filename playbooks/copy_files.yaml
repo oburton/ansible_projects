@@ -1,0 +1,20 @@
+---
+- hosts: all
+  become: yes
+  become_method: sudo
+
+  tasks:
+  - name: Create scripts directory in /root
+    shell: mkdir -p "/root/scripts" 
+
+  - name: Copy Shell Scripts
+    copy:
+      src: "{{ item }}"
+      dest: /root/scripts
+      owner: root
+      group: root
+      mode: 0775
+
+    with_fileglob:
+     - "/Users/owenb/Dropbox/Documents/Linux/Scripts/*.sh"
+     - "/Users/owenb/Dropbox/Documents/Linux/Scripts/*.bash"

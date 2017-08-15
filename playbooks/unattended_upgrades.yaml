@@ -1,0 +1,11 @@
+---
+- hosts: webservers, local
+  become: yes
+  become_method: sudo
+
+  tasks:
+    - name: Install Unattended Upgrades
+      apt: name=unattended-upgrades update_cache=yes
+
+    - name: Install Apt List Changes
+      apt: name=apt-listchanges update_cache=yes

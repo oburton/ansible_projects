@@ -1,0 +1,8 @@
+---
+- hosts: webservers
+  become: yes
+  become_method: sudo
+
+  tasks:
+  - name: DPKG configure
+    command: dpkg --configure -a

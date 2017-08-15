@@ -1,0 +1,6 @@
+---
+- hosts: webservers, localcomputer
+  become: yes
+  
+  roles:
+   - { role: php7 }

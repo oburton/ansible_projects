@@ -1,0 +1,15 @@
+---
+- hosts: all
+  become: yes
+  become_method: sudo
+
+  vars:  
+    user_pass: $6$79yhpTddF1qSg9vX$eto3c4s82bhyk4tQAYxKyxM95lPhWIjdvUE6HoVzbZWR0jQ2SKRVRnltlyNnugfoKnJf.7Bom/84kOnl2AIhW0
+  
+  tasks:
+    - name: Create User testuser on all Servers
+      user:
+       name: testuser 
+       shell: /bin/bash
+       update_password: always
+       password: "{{ user_pass }}"

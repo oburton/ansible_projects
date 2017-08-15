@@ -1,0 +1,11 @@
+---
+- hosts: all
+  become: yes
+  become_method: sudo
+
+  tasks:
+  - name: Remove .sh Shell scripts from root directory
+    shell: rm -rf /root/*.sh
+    
+  - name: Remove .bash Shell scripts from root directory
+    shell: rm -rf /root/*.bash

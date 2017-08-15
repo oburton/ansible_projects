@@ -1,0 +1,8 @@
+---
+- hosts: all
+  become: yes
+  become_method: sudo
+
+  tasks:
+  - name: Set Permissions for all .sh Shell Scripts in /root
+    shell: find /root -name "*.sh" -type f -exec chmod 775 {} \;
